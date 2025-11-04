@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yakuzashop - Tributo SolarBite</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;500;700&family=Roboto+Condensed:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="scanlines"></div>
+    <header class="hero">
+      <div class="hero__overlay"></div>
+      <nav class="hero__nav">
+        <span class="hero__crest">⚔️ Yakuzashop</span>
+        <ul>
+          <li><a href="#ofertas">Tributos</a></li>
+          <li><a href="#pagamentos">Pagamentos</a></li>
+          <li><a href="#faq">Perguntas</a></li>
+        </ul>
+      </nav>
+      <div class="hero__content">
+        <h1>SolarBite sob a proteção do clã</h1>
+        <p>
+          Bem-vindo ao beco vermelho onde as lâminas brilham. Escolha seu pacote
+          SolarBite e preste seu tributo em créditos in-game, PayPal ou cripto.
+        </p>
+        <button class="btn btn--primary" data-scroll="#ofertas">
+          Escolher tributo
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section id="ofertas" class="section section--offers">
+        <div class="section__title">
+          <h2>Pacotes de SolarBite</h2>
+          <span>Selecione um pacote para montar seu tributo</span>
+        </div>
+        <div class="offers" id="offers"></div>
+      </section>
+
+      <section id="pagamentos" class="section section--payment">
+        <div class="section__title">
+          <h2>Rituais de pagamento</h2>
+          <span>Escolha como deseja honrar o clã</span>
+        </div>
+        <div class="payment-grid">
+          <article class="payment" data-method="credits">
+            <h3>Créditos In-Game</h3>
+            <p>
+              Dedique os créditos acumulados em suas missões. Informe sua
+              gamertag e o valor será abatido pelo tesoureiro do clã.
+            </p>
+          </article>
+          <article class="payment" data-method="paypal">
+            <h3>PayPal</h3>
+            <p>
+              Receba um link seguro para tributar via PayPal. Após a confirmação
+              do pagamento, os entregadores enviarão seu SolarBite.
+            </p>
+          </article>
+          <article class="payment" data-method="crypto">
+            <h3>Cripto</h3>
+            <p>
+              Prefere operações silenciosas? Honre o clã transferindo para a
+              carteira informada e envie o comprovante via DM.
+            </p>
+          </article>
+        </div>
+        <form id="tribute-form" class="tribute-form">
+          <h3>Resumo do Tributo</h3>
+          <div class="tribute-form__group">
+            <label for="selected-offer">Pacote escolhido</label>
+            <input id="selected-offer" type="text" readonly />
+          </div>
+          <div class="tribute-form__group">
+            <label for="payment-method">Método de pagamento</label>
+            <input id="payment-method" type="text" readonly />
+          </div>
+          <div class="tribute-form__group tribute-form__group--dual">
+            <label for="handle">Seu codinome</label>
+            <input
+              id="handle"
+              name="handle"
+              type="text"
+              placeholder="Ex: Dragão Escarlate"
+              required
+            />
+            <label for="contact">Contato</label>
+            <input
+              id="contact"
+              name="contact"
+              type="text"
+              placeholder="Discord ou e-mail para confirmação"
+              required
+            />
+          </div>
+          <label class="tribute-form__group">
+            Mensagem para o clã
+            <textarea
+              id="note"
+              name="note"
+              rows="3"
+              placeholder="Detalhes do pedido, horário para entrega..."
+            ></textarea>
+          </label>
+          <button class="btn btn--accent" type="submit">Enviar tributo</button>
+          <p class="tribute-form__status" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <section id="faq" class="section section--faq">
+        <div class="section__title">
+          <h2>Juramentos frequentes</h2>
+          <span>Informações essenciais antes de selar o acordo</span>
+        </div>
+        <div class="faq" id="faq-list"></div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>© <span id="year"></span> Yakuzashop. Honre o pacto, receba o poder.</p>
+    </footer>
+
+    <template id="offer-template">
+      <article class="offer-card">
+        <div class="offer-card__header">
+          <h3></h3>
+          <span class="offer-card__tag"></span>
+        </div>
+        <p class="offer-card__description"></p>
+        <ul class="offer-card__perks"></ul>
+        <div class="offer-card__footer">
+          <span class="offer-card__price"></span>
+          <button class="btn btn--ghost">Escolher</button>
+        </div>
+      </article>
+    </template>
+
+    <template id="faq-template">
+      <details class="faq__item">
+        <summary></summary>
+        <p></p>
+      </details>
+    </template>
+
+    <script src="script.js" type="module"></script>
+  </body>
+</html>
